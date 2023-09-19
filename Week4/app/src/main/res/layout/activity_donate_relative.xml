@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ff0033cc"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="Donation 1.5"
+        android:textColor="@color/white"
+        android:textSize="11pt"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Welcome AnhSon"
+        android:textSize="11pt"
+        android:textStyle="bold"
+        android:layout_below="@id/textView2"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:alpha="0.7"
+        android:text="Please Give Generously"
+        android:textSize="7pt"
+        android:layout_below="@id/welcome"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/textView3">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paypal" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Direct" />
+    </RadioGroup>
+
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/radio_group"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="1dp" />
+
+    <ProgressBar
+        android:id="@+id/progress_horizontal"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/numberPicker"/>
+
+    <TextView
+        android:id="@+id/amountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="25dp"
+        android:text="Amount"
+        android:textSize="8pt"
+        android:layout_below="@id/progress_horizontal"
+        />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/amountText"
+        android:layout_alignTop="@id/amountText"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/donate_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="Donate"
+        android:layout_below="@id/amountText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/donate_button"
+        android:layout_toRightOf="@id/donate_button"
+        android:layout_marginStart="30dp"
+        android:alpha="0.8"
+        android:text="Donation so Far $1998"
+        android:textSize="8pt" />
+</RelativeLayout>

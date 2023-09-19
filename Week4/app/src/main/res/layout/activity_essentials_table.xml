@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:background="#ff0033cc"
+        android:text="Essentials of Developing Android 5.0"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:hint="Enter your Name" />
+
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter your Phone Number" />
+
+
+    <RadioGroup
+        android:id="@+id/cheeseNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cheese" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 x Cheese" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="None" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/typeCheese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Square" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round" />
+
+    </RadioGroup>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/peppe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="Pepperoni" />
+
+            <CheckBox
+                android:id="@+id/mushroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mushroom" />
+
+            <CheckBox
+                android:id="@+id/veggies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Veggies" />
+        </TableRow>
+    </TableRow>
+
+
+    <TextView
+        android:id="@+id/orderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your ordering :" />
+
+
+    <TextView
+        android:id="@+id/myOrder"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#ccc" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/exitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:text="EXIT" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/smsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="SMS-PlACE YOUR ORDER" />
+        </TableRow>
+
+    </TableRow>
+
+</TableLayout>
