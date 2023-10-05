@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff0033cc"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Essentials of Developing Android 5.0"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:hint="Enter your Name"
+        app:layout_constraintBottom_toTopOf="@id/editPhone"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter your Phone Number"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editName" />
+
+    <RadioGroup
+        android:id="@+id/cheeseNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/editPhone">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cheese" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 x Cheese" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="None" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/typeCheese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/cheeseNum">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Square" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/peppe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pepperoni"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/typeCheese" />
+
+    <CheckBox
+        android:id="@+id/mushroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mushroom"
+        app:layout_constraintBottom_toBottomOf="@+id/peppe"
+        app:layout_constraintLeft_toRightOf="@id/peppe" />
+
+    <CheckBox
+        android:id="@+id/veggies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veggies"
+        app:layout_constraintBottom_toBottomOf="@id/mushroom"
+        app:layout_constraintLeft_toRightOf="@id/mushroom" />
+
+    <TextView
+        android:id="@+id/orderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your ordering :"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/peppe" />
+
+    <TextView
+        android:id="@+id/myOrder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#ccc"
+        app:layout_constraintBottom_toTopOf="@id/exitButton"
+        app:layout_constraintTop_toBottomOf="@id/orderText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXIT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myOrder"
+        android:layout_marginBottom="40dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/smsButton"
+        app:layout_constraintLeft_toRightOf="@id/exitButton"
+        app:layout_constraintTop_toBottomOf="@id/myOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="SMS-PlACE YOUR ORDER"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
