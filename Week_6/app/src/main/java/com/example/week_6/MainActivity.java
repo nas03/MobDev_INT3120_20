@@ -1,17 +1,19 @@
 package com.example.week_6;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final int MY_REQUEST_CODE = 2;
+    int reqCode = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +31,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.item2)
-            Toast.makeText(MainActivity.this, "this is a message", Toast.LENGTH_LONG).show();
-        else if (id == R.id.item3)
-            Toast.makeText(MainActivity.this, "this is a second message", Toast.LENGTH_LONG).show();
-
+        if (id == R.id.item2) {
+            {
+                setContentView(R.layout.activity_donate_constraint);
+            }
+//                Intent intent = new Intent(this, DonateActivity.class);
+//                startActivityForResult(intent, MY_REQUEST_CODE);
+//            }
+        } else if (id == R.id.item3) {
+            setContentView(R.layout.activity_essentials_constraint);
+        }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == Activity.RESULT_OK && requestCode == MY_REQUEST_CODE) {
+//            String feedback = data.getStringExtra("feedback");
+//            textFeedback.setText(feedback);
+//        } else {
+//            textFeedback.setText("!?");
+//        }
     }
 }
