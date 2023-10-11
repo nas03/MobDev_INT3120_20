@@ -29,6 +29,7 @@ public class TabSelectorActivity extends AppCompatActivity {
         tabs.addTab(spec);
         Button btnGo = findViewById(R.id.btnGo);
         btnGo.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View arg0) {
                 EditText txtPerson = findViewById(R.id.txtPerson);

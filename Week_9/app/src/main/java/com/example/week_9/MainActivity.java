@@ -1,46 +1,76 @@
 package com.example.week_9;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.UserDictionary;
-import android.widget.EditText;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
-    Cursor mCursor;
-    String searchString;
-    EditText searchWord;
-    ListView wordList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Defines a list of columns to retrieve from the Cursor and load into an output row
-        String[] wordListColumns =
-                {
-                        UserDictionary.Words.WORD,   // Contract class constant containing the word column name
-                        UserDictionary.Words.LOCALE  // Contract class constant containing the locale column name
-                };
+    }
 
-// Defines a list of View IDs that receive the Cursor columns for each row
-        int[] wordListItems = {R.id.dictWord, R.id.locale};
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        return true;
+    }
 
-// Creates a new SimpleCursorAdapter
-        SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(
-                getApplicationContext(),               // The application's Context object
-                R.layout.wordlistrow,                  // A layout in XML for one row in the ListView
-                mCursor,                               // The result from the query
-                wordListColumns,                       // A string array of column names in the cursor
-                wordListItems,                         // An integer array of view IDs in the row layout
-                0);                                    // Flags (usually none are needed)
-    wordList = findViewById(R.id.wordList);
-// Sets the adapter for the ListView
-        wordList.setAdapter(cursorAdapter);
+    public void onClickAddDetails(View view) {
+
+        // class to add values in the database
+        //ContentValues values = new ContentValues();
+        ContentValues[] values = new ContentValues[10];
+        String names[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        for (int i = 0; i < 10; i++) {
+            ContentValues temp = new ContentValues();
+            temp.put(MyContentProvider.name, names[i]);
+            values[i] = temp;
+        }
+        // fetching text from user
+        //values.put(MyContentProvider.name, ((EditText) findViewById(R.id.textName)).getText().toString());
+
+        // inserting into database through content URI
+        getContentResolver().bulkInsert(MyContentProvider.CONTENT_URI, values);
+
+        // displaying a toast message
+        Toast.makeText(getBaseContext(), "New Record Inserted", Toast.LENGTH_LONG).show();
+    }
+
+    @SuppressLint("Range")
+    public void onClickShowDetails(View view) {
+        // inserting complete table details in this text field
+        ListView resultView = (ListView) findViewById(R.id.res);
+        String[] res = new String[10];
+        // creating a cursor object of the
+        // content URI
+        Cursor cursor = getContentResolver().query(Uri.parse("content://com.demo.user.provider/users"), null, null, null, null);
+
+        // iteration of the cursor
+        // to print whole table
+        int i = 0;
+        if (cursor.moveToFirst()) {
+            StringBuilder strBuild = new StringBuilder();
+            while (!cursor.isAfterLast()) {
+                strBuild.append("\n" + cursor.getString(cursor.getColumnIndex("id")) + "-" + cursor.getString(cursor.getColumnIndex("name")));
+                res[i++] = (strBuild).toString();
+                cursor.moveToNext();
+            }
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.class, resultView, android.app., res);
+
+        }
     }
 }
